@@ -1096,120 +1096,25 @@
         </div>
 
 
-        <div class="steps-bar reveal" id="stepsBar">
-            <div class="step-pill active" data-step="1"><span class="num">01</span><span class="label">Service</span></div>
-            <div class="step-line"></div>
-            <div class="step-pill" data-step="2"><span class="num">02</span><span class="label">Date &amp; Time</span></div>
-            <div class="step-line"></div>
-            <div class="step-pill" data-step="3"><span class="num">03</span><span class="label">Details</span></div>
-            <div class="step-line"></div>
-            <div class="step-pill" data-step="4"><span class="num">04</span><span class="label">Confirm</span></div>
+        <div class="section-lead reveal" style="text-align:center;max-width:720px;margin:0 auto 28px;">
+            Pick a date &amp; time that works for you. Confirmation lands in your inbox instantly via Google Calendar.
         </div>
 
-        <form class="booking-frame reveal" method="post" action="javascript:void(0)" id="bookingForm">
-            <input type="hidden" name="csrf_token" value="" />
-            <input type="hidden" name="package_id" id="bf-package" required />
-            <input type="hidden" name="preferred_time" id="bf-time" required />
+        <div class="booking-frame reveal" id="bookingForm">
+            <!-- Google Calendar Appointment Scheduling begin -->
+            <iframe
+                id="booking-iframe"
+                src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1Dpf-lj03hRZ3mqPKa_X1JzhdGntVOB2xxCWdibn8MQmzbczLitV1IJ-ql8c1aWaTaYG717TP4?gv=true"
+                title="Book an appointment with Auto Detox Studio"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allow="fullscreen"
+                frameborder="0"
+            ></iframe>
+            <!-- end Google Calendar Appointment Scheduling -->
+        </div>
 
-            <!-- STEP 1: SERVICE -->
-            <div class="bstep active" data-step="1">
-                <h3>Select Your Package</h3>
-                <div class="svc-pick-grid" id="svcPickGrid">
-                    <button type="button" class="svc-pick js-svc-pick" data-pkg-id="1" data-pkg-name="Hatchback" data-pkg-price="1999">
-              <div class="pk-tag">Compact</div>
-              <h4>Hatchback</h4>
-              <div class="pk-price">₹1,999 <s>₹3,999</s></div>
-            </button>
-                    <button type="button" class="svc-pick js-svc-pick" data-pkg-id="2" data-pkg-name="Sedan" data-pkg-price="2499">
-              <div class="pk-tag">Most Booked</div>
-              <h4>Sedan</h4>
-              <div class="pk-price">₹2,499 <s>₹4,999</s></div>
-            </button>
-                    <button type="button" class="svc-pick js-svc-pick" data-pkg-id="3" data-pkg-name="SUV / XUV" data-pkg-price="2999">
-              <div class="pk-tag">Full-Size</div>
-              <h4>SUV / XUV</h4>
-              <div class="pk-price">₹2,999 <s>₹5,999</s></div>
-            </button>
-                </div>
-                <div class="bstep-nav">
-                    <span></span>
-                    <span class="magnetic"><button type="button" class="btn btn-primary js-next" data-next="2">Continue</button></span>
-                </div>
-            </div>
-
-            <!-- STEP 2: DATE & TIME -->
-            <div class="bstep" data-step="2">
-                <h3>Pick Date &amp; Time</h3>
-                <div class="bf-row">
-                    <label for="bf-date">Preferred Date *</label>
-                    <input id="bf-date" type="date" name="preferred_date" required min="2026-09-13" />
-                </div>
-                <div class="bf-row">
-                    <label>Available Time Slots *</label>
-                    <div class="slots-grid" id="slotsGrid">
-                        <button type="button" class="slot-btn js-slot" data-slot="09:00 AM">09:00 AM</button>
-                        <button type="button" class="slot-btn js-slot" data-slot="11:00 AM">11:00 AM</button>
-                        <button type="button" class="slot-btn js-slot" data-slot="01:00 PM">01:00 PM</button>
-                        <button type="button" class="slot-btn js-slot" data-slot="03:00 PM">03:00 PM</button>
-                        <button type="button" class="slot-btn js-slot" data-slot="05:00 PM">05:00 PM</button>
-                    </div>
-                </div>
-                <div class="bstep-nav">
-                    <span class="magnetic"><button type="button" class="btn btn-ghost small-back js-back" data-back="1">Back</button></span>
-                    <span class="magnetic"><button type="button" class="btn btn-primary js-next" data-next="3">Continue</button></span>
-                </div>
-            </div>
-
-            <!-- STEP 3: DETAILS -->
-            <div class="bstep" data-step="3">
-                <h3>Your Details</h3>
-                <div class="bf-row">
-                    <label for="bf-name">Full Name *</label>
-                    <input id="bf-name" type="text" name="name" required maxlength="120" />
-                </div>
-                <div class="bf-row-group">
-                    <div class="bf-row">
-                        <label for="bf-phone">Phone *</label>
-                        <input id="bf-phone" type="tel" name="phone" required pattern="[6-9][0-9]{9}" maxlength="10" placeholder="10-digit mobile number" />
-                    </div>
-                    <div class="bf-row">
-                        <label for="bf-email">Email</label>
-                        <input id="bf-email" type="email" name="email" maxlength="150" />
-                    </div>
-                </div>
-                <div class="bf-row">
-                    <label for="bf-car">Vehicle Model</label>
-                    <input id="bf-car" type="text" name="car_model" maxlength="100" placeholder="e.g. Swift, City, Creta" />
-                </div>
-                <div class="bf-row">
-                    <label for="bf-notes">Notes (optional)</label>
-                    <textarea id="bf-notes" name="notes" rows="3" maxlength="500"></textarea>
-                </div>
-                <div class="bstep-nav">
-                    <span class="magnetic"><button type="button" class="btn btn-ghost small-back js-back" data-back="2">Back</button></span>
-                    <span class="magnetic"><button type="submit" class="btn btn-primary">Confirm Booking</button></span>
-                </div>
-                <!-- <span class="magnetic"><button type="button" class="btn btn-primary js-next" data-next="4">Continue</button></span>
-                </div> -->
-            </div>
-
-            <!-- STEP 4: CONFIRM -->
-            <!-- <div class="bstep" data-step="4">
-                <h3>Confirm Your Booking</h3>
-                <div class="confirm-summary" id="confirmSummary">
-                    <div class="confirm-row"><span>Package</span><span id="cs-package">—</span></div>
-                    <div class="confirm-row"><span>Date</span><span id="cs-date">—</span></div>
-                    <div class="confirm-row"><span>Time</span><span id="cs-time">—</span></div>
-                    <div class="confirm-row"><span>Name</span><span id="cs-name">—</span></div>
-                    <div class="confirm-row"><span>Phone</span><span id="cs-phone">—</span></div>
-                    <div class="confirm-row"><span>Vehicle</span><span id="cs-car">—</span></div>
-                </div>
-                <div class="bstep-nav">
-                    <span class="magnetic"><button type="button" class="btn btn-ghost small-back js-back" data-back="3">Back</button></span> -->
-            <!-- <span class="magnetic"><button type="submit" class="btn btn-primary">Confirm Booking</button></span>
-            </div> -->
-
-        </form>
+        <!-- Legacy multi-step form removed; Google Calendar iframe above handles booking. -->
 
         <div class="booking-side-note reveal">
             <div class="bsn-item"><b>Duration</b>3–6 hrs depending on package</div>

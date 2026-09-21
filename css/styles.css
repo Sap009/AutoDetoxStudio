@@ -2436,6 +2436,15 @@ h5 {
     padding: 48px;
 }
 
+#booking-iframe {
+    display: block;
+    width: 100%;
+    min-height: 720px;
+    border: 0;
+    border-radius: 12px;
+    background: #fff;
+}
+
 .bstep {
     display: none;
 }
@@ -2996,6 +3005,9 @@ h5 {
     }
     .booking-frame {
         padding: 30px 22px;
+    }
+    #booking-iframe {
+        min-height: 640px;
     }
     .steps-bar {
         flex-wrap: wrap;
